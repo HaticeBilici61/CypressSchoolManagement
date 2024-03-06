@@ -1,78 +1,21 @@
 class HomePage{
-    //WebElements
-  constructor(){
-      this.clickLoginIcon='.col-sm-2 > .ms-2'
-  }
-  
-  //Methods
-  clickLogin(){
-    cy.get (this.clickLoginIcon).click()
-  }
+constructor(){
+    this.MenuButton = '[aria-controls="offcanvasNavbar-expand-false"]'
+    this.contactGetAllButton='.justify-content-start > :nth-child(10)'
+
+
+
+
 }
-export const homePage = new HomePage()
 
 
+clickMenuButton(MenuButton) {
+    cy.get(this.MenuButton).click();
+}
 
+clickContactGetAllButton(contactButton) {
+    cy.get(this.contactGetAllButton).click();
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+}
+export const homePage= new HomePage()
