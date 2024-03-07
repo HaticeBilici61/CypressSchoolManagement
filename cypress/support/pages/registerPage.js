@@ -1,18 +1,19 @@
-class RegisterPage{
+class RegisterPage {
     //Webelementler
-    constructor(){
-this.registerGirisButton='[class="header_link me-2"]'
-this.registerName='#name'
-this.registerNachname='#surname'
-this.registerGeburtsort='#birthPlace'
-this.registerTelefon='#phoneNumber'
-this.registerGeschlecht='[value="MALE"]'
-this.registerGeburtsdatum='#birthDay'
-this.registerSSN='#ssn'
-this.registerNutzername='#username'
-this.registerPasswort='#password'
-this.registerbuton='type="button"][class="fw-semibold btn btn-primary"]'
-this.registerZorunlualanMessage='.invalid-feedback'
+    constructor() {
+        this.registerGirisButton = '[class="header_link me-2"]'
+        this.registerName = '#name'
+        this.registerNachname = '[placeholder="Surname"]'
+        this.registerGeburtsort = '#birthPlace'
+        this.registerTelefon = '#phoneNumber'
+        this.registerGeschlecht = '[value="MALE"]'
+        this.registerGeburtsdatum = '#birthDay'
+        this.registerSSN = '#ssn'
+        this.registerNutzername = '#username'
+        this.registerPasswort = '#password'
+        this.registerbuton = '[class="fw-semibold btn btn-primary"]'
+        this.registerZorunlualanMessage ="//div[contains(@class,'card-body')]//div[1]//div[1]"
+        
 
 
 
@@ -20,42 +21,53 @@ this.registerZorunlualanMessage='.invalid-feedback'
 
     //metotlar
 
-    writeRegisterGirisbuton(){
-    cy.get(this.registerGirisButton).click();
+    writeRegisterGirisbuton() {
+        cy.get(this.registerGirisButton).click();
     }
-    writeRegisterName(Name){
+    writeRegisterName(Name) {
         cy.get(this.registerName).type(Name);
     }
-    writeRegisterNachname(Nachname){
-        cy.get(this.registerNachname).type(Nachname);
+    writeRegisterNachname(Surname) {
+        cy.get(this.registerNachname).type(Surname);
     }
-    writeRegisterGeburtsOrt(Geburtsort){
-        cy.get(this.registerGeburtsort).type(Geburtsort);
+    writeRegisterGeburtsOrt(Birth_Place) {
+        cy.get(this.registerGeburtsort).type(Birth_Place);
     }
-    writeRegisterTelefon(Telefon){
-        cy.get(this.registerTelefon).type(Telefon);
+    writeRegisterTelefon(Phone) {
+        cy.get(this.registerTelefon).type(Phone);
     }
-    writeRegisterGschlecht(Geschlecht){
-        cy.get(this.registerGeschlecht).type(Geschlecht);
+    writeRegisterGschlechtclick(){
+     cy.get(this.registerGeschlecht).click()
+    
     }
-    writeRegisterGeburtsdatum(Geburtsdatum){
-        cy.get(this.registerGeburtsdatum).type(Geburtsdatum);
+    writeRegisterGeburtsdatum(Date_Of_Birth) {
+        cy.get(this.registerGeburtsdatum).type(Date_Of_Birth);
     }
-   writeRegisterSSN(SSN){
-    cy.get(this.registerSSN).type(SSN);
-   }
-   writeRegisterNutzername(Nutzername){
-    cy.get(this.registerNutzername).type(Nutzername);
-   }
+    writeRegisterSSN(Ssn) {
+        cy.get(this.registerSSN).type(Ssn);
+    }
+    writeRegisterNutzername(User_Name) {
+        cy.get(this.registerNutzername).type(User_Name);
+    }
 
-   writeRegisterPasswort(Passwort){
-    cy.get(this.registerPasswort).type(Passwort);
-   }
-   clickRegisterButton(){
-    cy.get(this.registerbuton).click();
-   }
+    writeRegisterPasswort(Password) {
+        cy.get(this.registerPasswort).type(Password);
+    }
+    clickRegisterButton() {
+        cy.get(this.registerbuton).click();
+        
 
-   verifyZorunluAlanMessage(zorunluMessage){
-    cy.get(this.registerZorunlualanMessage).should('contain',zorunluMessage);
-   }
+    }
+
+     verifyZorunluAlanMessage(requiredZorunluAlanMessage) {
+         cy.wait(2000)
+          cy.xpath(this.registerZorunlualanMessage).should('have.to',requiredZorunluAlanMessage);
+        cy.wait(2000)
+     }clear
+
+    writeBosUsername(Bosname){
+        cy.get(this.registerName).type(Bosname)
+    }
 }
+
+export const register = new RegisterPage()

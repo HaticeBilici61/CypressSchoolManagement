@@ -1,12 +1,13 @@
 {
     "Name":"Menekse",
-    "Surname":"Hotz",
-    "Birth Place":"Ingolstadt",
+    "Surname":"bilo",
+    "Birth_Place":"Ingolstadt",
     "Phone":"756-465-6032",
-    "Date Of Birth":"01.12.1989",
+    "Date_Of_Birth":"1989-12-01",
     "Ssn":"108-66-2284",
-    "User Name":"htcgul",
+    "User_Name":"htcgul",
     "Password":"htcgul61@",
-    "requiredZorunluAlanMessage":"Required"
+    "requiredZorunluAlanMessage":"Required",
+    "Bosname":" "
 
 }
