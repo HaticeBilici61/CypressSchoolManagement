@@ -9,18 +9,19 @@ class AdminManagementPage {
         this.ssnAdminManagement = '#ssn'
         this.usernameAdminManagement = '#username'
         this.passwordAdminManagement = '#password'
-        this.submitButtonAdminManagement = '.fw-semibold btn btn-primary btn-lg'
+        this.submitButtonAdminManagement = '.mx-auto > .fw-semibold'
         this.nameErrorMessageAdminManagement = '[id="name"][class="form-control is-invalid"]'
+        this.submitSaveMessageAdminManagement ='.Toastify__toast-body'
     }
 
    // Methodlar
-   writeNameAdminManagement(nameAdminManagement) {
-    cy.get(this.nameAdminManagement).type(nameAdminManagement)
-}
-writeSurnameAdminManagement(surnameAdminManagement) {
+  writeNameAdminManagement(nameAdminManagement) {
+  cy.get(this.nameAdminManagement).type(nameAdminManagement)
+  }
+ writeSurnameAdminManagement(surnameAdminManagement) {
     cy.get(this.surnameAdminManagement).type(surnameAdminManagement)
-}
 
+ }
 writeBirthPlaceAdminManagement(birthPlaceAdminManagement) {
     cy.get(this.birthPlaceAdminManagement).type(birthPlaceAdminManagement)
 }
@@ -42,7 +43,7 @@ writePhoneAdminManagement(phoneAdminManagement) {
     cy.get(this.phoneAdminManagement).type(phoneAdminManagement)
 }
 writeUserNameAdminManagement(usernameAdminManagement) {
-    cy.get(this.usernameAdminManagement).type(usernameAdminManagement)
+cy.get(this.usernameAdminManagement).type(usernameAdminManagement)
 }
 writePasswordAdminManagement(passwordAdminManagement) {
     cy.get(this.passwordAdminManagement).type(passwordAdminManagement)
@@ -51,9 +52,10 @@ clickSubmitButtonAdminManagement(submitButtonAdminManagement) {
     cy.get(this.submitButtonAdminManagement).click
 }
 
+verifySubmitSaveMessageAdminManagement(submitSaveMessageAdminManagement){
+cy.get().should('have.to', submitSaveMessageAdminManagement);
 
-
-
+}
 
 }
 export const adminManagement = new AdminManagementPage()

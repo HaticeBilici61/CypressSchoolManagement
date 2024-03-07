@@ -1,11 +1,12 @@
 {
     "nameAdminManagement":"Admin",
-   "surnameAdminManagement":"Cann",
+   "surnameAdminManagement":"Selma",
    "birthPlaceAdminManagement":"Meram",
    "genderAdminManagement":"FEMALE",
    "dateOfBirthAdminManagement":"2001-01-01",
    "phoneAdminManagement":"176-567-8987",
    "ssnAdminManagement":"890-34-6765",
-   "userNameAdminManagement":"AdminCann",
-   "passwordAdminManagement":"ACBatch1+"
+   "userNameAdminManagement":"AdminSelme",
+   "passwordAdminManagement":"ACBatch1+",
+   "submitSaveMessageAdminManagement":"Admin Saved"
 }

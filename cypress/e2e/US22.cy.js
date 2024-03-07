@@ -6,6 +6,7 @@ const { loginPage } = require("../support/pages/loginPage");
 describe('Admin Ekleme', () => {
    let adminManagementData
    let loginData
+   let fakeName
   
     before(() => {
 
@@ -16,6 +17,8 @@ describe('Admin Ekleme', () => {
         cy.fixture('admin_management_data').then((data) => {
             adminManagementData = data
         })
+
+    fakeName=faker.internet.name()
        
     });
   
@@ -35,9 +38,10 @@ describe('Admin Ekleme', () => {
     adminManagement.writeDateOfAdminManagement(adminManagementData.dateOfBirthAdminManagement)
     adminManagement.writePhoneAdminManagement(adminManagementData.phoneAdminManagement)
     adminManagement.writeSsnAdminManagement(adminManagementData.ssnAdminManagement)
-    adminManagement.writeUserNameAdminManagement(adminManagementData.usernameAdminManagement)
+    adminManagement.writeUserNameAdminManagement(adminManagementData.userNameAdminManagement)
     adminManagement.writePasswordAdminManagement(adminManagementData.passwordAdminManagement)
     adminManagement.clickSubmitButtonAdminManagement(adminManagementData.submitButtonAdminManagement)
+    adminManagement.verifySubmitSaveMessageAdminManagement(adminManagementData.submitSaveMessageAdminManagement)
       
   
           

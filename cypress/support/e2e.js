@@ -20,3 +20,4 @@ import './commands'
 // require('./commands')
 
 require('@faker-js/faker')
+require('xpath_cypress')
