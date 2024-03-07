@@ -1,0 +1,27 @@
+{
+"name": "Kübra",
+"surName": "Tanribuyurdu",
+"dateOfBirth": "2000-10-10",
+"phone": "213-434-5453",
+"birhtPlace":"Istanbul",
+"gender": "FEMALE",
+"password": "Kubraa_48@",
+"ssn":"345-54-4565",
+"userName":"ViceDean",
+
+
+
+
+"passwordMinLengthErrorMessage": " Password must be minimal 6 characters long.ZZZ ",
+"requiredFirstNameMessage": " First name is required. ",
+"requiredLastNameMessage": " Last name is required. ",
+"requiredDateOfBirthMessage": " Date of Birth is required. ",
+
+"requiredCityMessage": " City is required. ",
+
+
+"requiredPhoneMessage": " Phone is required. ",
+
+"requiredPasswordMessage": " Password is required. "
+
+}
