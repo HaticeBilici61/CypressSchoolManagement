@@ -1,5 +1,6 @@
 const { defineConfig } = require("cypress");
 module.exports = defineConfig({
+  experimentalStudio: true,
   reporter: 'cypress-mochawesome-reporter',
   reporterOptions: {
      overwrite: true, //deger true olursa eski html rapor dosyasını silip yeniden olusturur, true olursa index001 seklinde diğer dosyaları olusturur
@@ -24,6 +25,7 @@ module.exports = defineConfig({
   e2e: {
     baseUrl: "https://managementonschools.com",
     env: {
+      login: "/login",
       
     },
     setupNodeEvents(on, config) {
