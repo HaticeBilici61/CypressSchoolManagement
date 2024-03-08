@@ -12,11 +12,14 @@ class AdminManagementPage {
         this.submitButtonAdminManagement = '.mx-auto > .fw-semibold'
         this.nameErrorMessageAdminManagement = '[id="name"][class="form-control is-invalid"]'
         this.submitSaveMessageAdminManagement ='.Toastify__toast-body'
+        this.submitErrorMessageAdminManagement ='(//div[@class="invalid-feedback"])[1]'
     }
 
    // Methodlar
   writeNameAdminManagement(nameAdminManagement) {
+    cy.wait(2000)
   cy.get(this.nameAdminManagement).type(nameAdminManagement)
+  cy.wait(2000)
   }
  writeSurnameAdminManagement(surnameAdminManagement) {
     cy.get(this.surnameAdminManagement).type(surnameAdminManagement)
@@ -55,6 +58,15 @@ clickSubmitButtonAdminManagement(submitButtonAdminManagement) {
 verifySubmitSaveMessageAdminManagement(submitSaveMessageAdminManagement){
 cy.get().should('have.to', submitSaveMessageAdminManagement);
 
+}
+verifysubmitErrorMessageAdminManagement() {
+    cy.wait(2000)
+     cy.xpath(this.submitErrorMessageAdminManagement).should('have.to',submitErrorMessageAdminManagement);
+   cy.wait(2000)
+}clear
+
+writeBosName(bosnameAdminManagement){
+   cy.get(this.nameAdminManagement).type(bosname)
 }
 
 }

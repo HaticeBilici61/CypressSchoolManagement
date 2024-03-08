@@ -1,6 +1,6 @@
 {
     "nameAdminManagement":"Admin",
-   "surnameAdminManagement":"Selma",
+   "surnameAdminManagement":"Selme",
    "birthPlaceAdminManagement":"Meram",
    "genderAdminManagement":"FEMALE",
    "dateOfBirthAdminManagement":"2001-01-01",
@@ -8,5 +8,7 @@
    "ssnAdminManagement":"890-34-6765",
    "userNameAdminManagement":"AdminSelme",
    "passwordAdminManagement":"ACBatch1+",
-   "submitSaveMessageAdminManagement":"Admin Saved"
+   "submitSaveMessageAdminManagement":"Admin Saved",
+   "submitErrorMessageAdminManagement":"Required",
+   "bosnameAdminManagement":" "
 }

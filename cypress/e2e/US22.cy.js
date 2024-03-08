@@ -1,13 +1,13 @@
 
 const { adminManagement } = require("../support/pages/adminManagementPage");
-const { loginPage } = require("../support/pages/loginPage");
+adminManagement
+
 
 
 describe('Admin Ekleme', () => {
    let adminManagementData
-   let loginData
-   let fakeName
   
+   
     before(() => {
 
         cy.fixture('login_data').then((data) => {
@@ -23,14 +23,10 @@ describe('Admin Ekleme', () => {
     });
   
     beforeEach(() => {
-        cy.visit('/');
+        cy.visit('/'  + Cypress.env('adminManagement'));
       });
-    it('Vice Dean, mesajlari, yazarlarini, e-maillerini, gönderilme tarihi ve  subject bilgilerini görüntüleyebilmelidir', () => {
-    cy.visit('/');
-   loginPage.clickLoginButton1()
-   loginPage.writeUserName(loginData.userName)
-    loginPage.writePassword(loginData.passwordInput)
-   loginPage.clickLoginButton2();
+    it.only('Admin Ekleme', () => {
+    
     adminManagement.writeNameAdminManagement(adminManagementData.nameAdminManagement)
     adminManagement.writeSurnameAdminManagement(adminManagementData.surnameAdminManagement)
     adminManagement.writeBirthPlaceAdminManagement(adminManagementData.birthPlaceAdminManagement)
@@ -45,4 +41,30 @@ describe('Admin Ekleme', () => {
       
   
           
-    })})
+    })
+
+    it('Admin Ekleme', () => {
+       
+       loginPage.clickLoginButton1()
+       loginPage.writeUserName(loginData.userName)
+        loginPage.writePassword(loginData.passwordInput)
+       loginPage.clickLoginButton2();
+        adminManagement.writeNameAdminManagement(adminManagementData.bosNameAdminManagement)
+        adminManagement.writeSurnameAdminManagement(adminManagementData.surnameAdminManagement)
+        adminManagement.writeBirthPlaceAdminManagement(adminManagementData.birthPlaceAdminManagement)
+        adminManagement.clickGenderAdminManagement(adminManagementData.genderAdminManagement)
+        adminManagement.writeDateOfAdminManagement(adminManagementData.dateOfBirthAdminManagement)
+        adminManagement.writePhoneAdminManagement(adminManagementData.phoneAdminManagement)
+        adminManagement.writeSsnAdminManagement(adminManagementData.ssnAdminManagement)
+        adminManagement.writeUserNameAdminManagement(adminManagementData.userNameAdminManagement)
+        adminManagement.writePasswordAdminManagement(adminManagementData.passwordAdminManagement)
+        adminManagement.clickSubmitButtonAdminManagement(adminManagementData.submitButtonAdminManagement)
+        adminManagement.verifySubmitSaveMessageAdminManagement(adminManagementData.submitSaveMessageAdminManagement)
+          
+      
+              
+        })
+    
+    
+
+})
