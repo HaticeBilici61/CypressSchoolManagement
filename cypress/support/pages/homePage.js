@@ -1,10 +1,20 @@
 class HomePage{
+
+    // Web Elementleri
+
+
+
+    // Metotlar
+    verifyUrl(url) {
+        cy.url().should('contain', url)
+
+
+}
+
+
 constructor(){
     this.MenuButton = '[aria-controls="offcanvasNavbar-expand-false"]'
     this.contactGetAllButton='.justify-content-start > :nth-child(10)'
-
-
-
 
 }
 
@@ -19,3 +29,4 @@ clickContactGetAllButton(contactButton) {
 
 }
 export const homePage= new HomePage()
+
