@@ -26,6 +26,7 @@ module.exports = defineConfig({
     baseUrl: "https://managementonschools.com",
     env: {
       login: "/login",
+      register:"/register"
       
     },
     setupNodeEvents(on, config) {
