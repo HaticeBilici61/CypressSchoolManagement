@@ -1,13 +1,48 @@
 {
-    "Name":"Menekse",
-    "Surname":"bilo",
+    "Name":"fakeName",
+    "Surname":"fakeSurname",
     "Birth_Place":"Ingolstadt",
     "Phone":"756-465-6032",
     "Date_Of_Birth":"1989-12-01",
-    "Ssn":"108-66-2284",
-    "User_Name":"htcgul",
-    "Password":"htcgul61@",
+    "Ssn":"969-49-4027",
+    "User_Name":"Meneksegl",
+    "Password":"Htcgul61@..",
     "requiredZorunluAlanMessage":"Required",
-    "Bosname":" "
+    "GenderFemale":"Female",
+    "GenderMale":"Male",
+    "Bosname":" ",
+    "Bossurname":" ",
+    "BosBirtPlace":" ",
+    "BosTelefon":" ",
+    "Telefononbirkarakter":"756-465-603",
+    "Telefononuckarakter":"756-465-60356",
+    "requiredtelefonmessage":"Mindestens 12 Zeichen (XXX-XXX-XXXX)",
+    "RequiredTelefonFazlaKarakterMessage":"Bitte geben Sie eine gültige Telefonnummer ein",
+    "BosSsn":" ",
+    "SsnOnKarakter":"108-66-228",
+    "SsnOnikiKarakter":"108-66-22845",
+    "RequiredSSnOnbirkarakterhatamesaji":"Mindestens 11 Zeichen (XXX-XX-XXXX)",
+    "RequiredSsnOnIkiKarakterHatamesaji":"Please enter valid SSN number",
+    "BosUserName":" ",
+    "BosPassword":" ",
+    "PasswordYediKarakter":"Htcgul1",
+    "PasswordRequireduyariyazisiKarakterSayisi":"Mindestens 8 Zeichen",
+    "PasswortAyniTipKarakter":"htcblcssn",
+    "PasswortAyniTipKarakterUyariMessage":"Ein Großbuchstabe",
+    "DogumyiliileriTarihUyaris":"geçmiş bir tarih olmalı",
+    "DogumYIliIleriTarih":"2024-06-01",
+    "requiredBosSurnamemessage":"Your surname must consist of the characters.Your surname should be at least 2 characters",
+    "requiredBosUserNamemessage":"Your username should be at least 4 characters"
+
+
+
+
+
+    
+
+
+    
+
+
 
 }

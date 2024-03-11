@@ -36,7 +36,7 @@ module.exports = defineConfig({
     env: {
      login: "/login",
      
-      
+
     },
     setupNodeEvents(on, config) {
       require('cypress-mochawesome-reporter/plugin')(on);
