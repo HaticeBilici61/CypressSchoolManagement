@@ -3,16 +3,23 @@ class LoginPage{
     constructor(){
         this.userNameInput='#username'
         this.passwordInput='#password'
-        this.loginButton='[class="fw-semibold btn btn-primary"]'
+        this.loginButton='button.fw-semibold.btn.btn-primary[type="button"]'
+        this.loginIcon='[class="header_link ms-2"]'
     }
-   
+
     //Methods
 
-    writeUserName(userName){
-        cy.get(this.userNameInput).type(userName)
+    writeUserName(DeanUserName){
+        cy.get(this.userNameInput).type(DeanUserName)
     }
-    writePassword(password){
-        cy.get(this.passwordInput).type(password)
+    writePassword(DeanPassword){
+        cy.get(this.passwordInput).type(DeanPassword)
+    }
+    clickLoginIcon(){
+        cy.get(this.loginIcon).click()
+    }
+    clickLoginButton(){
+        cy.get(this.loginButton).should('be.enabled').click();
     }
    
 } 
