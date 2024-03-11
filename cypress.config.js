@@ -1,4 +1,13 @@
 const { defineConfig } = require("cypress");
+const {Pool }= require('pg'); //postgre için gerekli modül
+
+const dbConfig = {
+  user: "select_user",
+  host: "managementonschools.com",
+  database: "school_management",
+  password: "43w5ijfso",
+  port: 5432
+};
 module.exports = defineConfig({
   experimentalStudio: true,
   reporter: 'cypress-mochawesome-reporter',
@@ -25,11 +34,19 @@ module.exports = defineConfig({
   e2e: {
     baseUrl: "https://managementonschools.com",
     env: {
-      login: "/login",
+     login: "/login",
+     
       
     },
     setupNodeEvents(on, config) {
       require('cypress-mochawesome-reporter/plugin')(on);
+      on("task", {
+        async connectDb (query){
+          const pool = new Pool(dbConfig);
+          const results = await pool.query(query);
+          return results
+        }
+      })
     
 
     },
