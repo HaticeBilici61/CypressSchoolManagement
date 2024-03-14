@@ -11,6 +11,7 @@ class StudentChooseLessonPage {
         this.lesson1=":nth-child(13) > :nth-child(1) > span > div > #lessonProgramId"
         this.lesson2=":nth-child(14) > :nth-child(1) > span > div > #lessonProgramId"
         this.menuButton=".navbar > .fw-semibold"
+        
     }
 
     verifyLessonName(lessonName) {

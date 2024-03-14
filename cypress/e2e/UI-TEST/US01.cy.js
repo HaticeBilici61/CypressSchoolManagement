@@ -1,6 +1,8 @@
-const { register } = require("../support/pages/registerPage");
+register
 
 import { faker } from "@faker-js/faker";
+import { register } from "../../support/pages/registerPage";
+
 
 
 
@@ -8,34 +10,34 @@ describe('US01-TC01-Aday ogrenciler sisteme kayit olabilmelidir.', () => {
   let registerData
   let fakeName
   let fakeSurname
-  let fakePhoneNumber=generateFakePhone()
-  let  fakessn=generateFakeSSN()
+  let fakePhoneNumber = generateFakePhone()
+  let fakessn = generateFakeSSN()
   function generateFakeSSN() {
-    return Array.from({length: 9}, () => Math.floor(Math.random() * 10))
-              .join('')
-              .replace(/(\d{3})(\d{2})(\d{4})/, "$1-$2-$3")
-    }
+    return Array.from({ length: 9 }, () => Math.floor(Math.random() * 10))
+      .join('')
+      .replace(/(\d{3})(\d{2})(\d{4})/, "$1-$2-$3")
+  }
 
   function generateFakePhone() {
     const randomNumber = () => Math.floor(Math.random() * 10);
     return `${randomNumber()}${randomNumber()}${randomNumber()}-${randomNumber()}${randomNumber()}${randomNumber()}-${randomNumber()}${randomNumber()}${randomNumber()}${randomNumber()}`;
-}
+  }
 
 
   before(() => {
     cy.fixture('register-data').then((data) => {
       registerData = data
-      fakeName=faker.person.firstName()
+      fakeName = faker.person.firstName()
       //fakeNachname=faker.name.lastName()
-     fakeSurname= faker.person.lastName()
-      
-     
-    
+      fakeSurname = faker.person.lastName()
+
+
+
     })
-  
 
 
-  
+
+
   });
 
   beforeEach(() => {
@@ -45,8 +47,8 @@ describe('US01-TC01-Aday ogrenciler sisteme kayit olabilmelidir.', () => {
   it('US01-TC01-Aday ogrenciler sisteme kayit olabilmelidir.', () => {
     cy.on('uncaught:exception', (err, runnable) => {
       return false
-        })
-    
+    })
+
     register.writeRegisterName(fakeName)
     register.writeRegisterNachname(fakeSurname)
     register.writeRegisterGeburtsOrt(registerData.Birth_Place)
@@ -62,7 +64,7 @@ describe('US01-TC01-Aday ogrenciler sisteme kayit olabilmelidir.', () => {
 
   it('US01-TC02-Aday ogrenci olusturma.(name alani bos birakilamaz.)', () => {
 
-    
+
     register.writeBosUsername(registerData.Bosname)
     register.writeRegisterNachname(fakeSurname)
     register.writeRegisterGeburtsOrt(registerData.Birth_Place)
@@ -79,7 +81,7 @@ describe('US01-TC01-Aday ogrenciler sisteme kayit olabilmelidir.', () => {
 
   it('US01-TC03-Aday ogrenci olusturma.(nachname  alani bos birakilamaz.)', () => {
 
-    
+
     register.writeRegisterName(fakeName)
     register.writeBosSurname(registerData.Bossurname)
     register.writeRegisterGeburtsOrt(registerData.Birth_Place)
@@ -89,14 +91,14 @@ describe('US01-TC01-Aday ogrenciler sisteme kayit olabilmelidir.', () => {
     register.writeRegisterSSN(fakessn)
     register.writeRegisterNutzername(fakeName)
     register.writeRegisterPasswort(registerData.Password)
-   // register.clickRegisterButton()
+    // register.clickRegisterButton()
     register.verifyBosSurNameErrorMessage(registerData.requiredBosSurnamemessage)
   });
 
 
   it('US01-TC04-Aday ogrenci olsturma.(Birth Place alani bos birakilamaz.)', () => {
 
-   
+
     register.writeRegisterName(fakeName)
     register.writeRegisterNachname(fakeSurname)
     register.writeBosBirthPlace(registerData.BosBirtPlace)
@@ -115,7 +117,7 @@ describe('US01-TC01-Aday ogrenciler sisteme kayit olabilmelidir.', () => {
 
   it('US01-TC05-Aday ogrenci olusturma.(Telefon numarasi bos olamaz))', () => {
 
-    
+
     register.writeRegisterName(fakeName)
     register.writeRegisterNachname(fakeSurname)
     register.writeRegisterGeburtsOrt(registerData.Birth_Place)
@@ -129,10 +131,10 @@ describe('US01-TC01-Aday ogrenciler sisteme kayit olabilmelidir.', () => {
     register.verifyZorunluAlanMessage(registerData.requiredZorunluAlanMessage)
   });
 
-  
+
   it('US01-TC06-Aday ogrenci olusturma.(kullanici 11 haneli telefonnumber girer', () => {
 
-    
+
     register.writeRegisterName(fakeName)
     register.writeRegisterNachname(fakeSurname)
     register.writeRegisterGeburtsOrt(registerData.Birth_Place)
@@ -150,7 +152,7 @@ describe('US01-TC01-Aday ogrenciler sisteme kayit olabilmelidir.', () => {
 
   it('US01-TC07-Aday ogrenci olusturma.(kullanici 13 haneli telefonnumber girer', () => {
 
-    
+
     register.writeRegisterName(fakeName)
     register.writeRegisterNachname(fakeSurname)
     register.writeRegisterGeburtsOrt(registerData.Birth_Place)
@@ -167,7 +169,7 @@ describe('US01-TC01-Aday ogrenciler sisteme kayit olabilmelidir.', () => {
 
   it('US01-TC08-Aday ogrenci olusturma.(SSN bos olamaz', () => {
 
-    
+
     register.writeRegisterName(fakeName)
     register.writeRegisterNachname(fakeSurname)
     register.writeRegisterGeburtsOrt(registerData.Birth_Place)
@@ -182,9 +184,9 @@ describe('US01-TC01-Aday ogrenciler sisteme kayit olabilmelidir.', () => {
   });
 
 
-  it.only('US01-TC09-Aday ogrenci olusturma.(Ssn alanina 10 karakter girilir', () => {
+  it('US01-TC09-Aday ogrenci olusturma.(Ssn alanina 10 karakter girilir', () => {
 
-    
+
     register.writeRegisterName(fakeName)
     register.writeRegisterNachname(fakeSurname)
     register.writeRegisterGeburtsOrt(registerData.Birth_Place)
@@ -201,7 +203,7 @@ describe('US01-TC01-Aday ogrenciler sisteme kayit olabilmelidir.', () => {
 
   it('US01-TC10-Aday ogrenci olusturma.(Ssn alanina 12 karakter girilir', () => {
 
-    
+
     register.writeRegisterName(fakeName)
     register.writeRegisterNachname(fakeSurname)
     register.writeRegisterGeburtsOrt(registerData.Birth_Place)
@@ -233,7 +235,7 @@ describe('US01-TC01-Aday ogrenciler sisteme kayit olabilmelidir.', () => {
 
   it('US01-TC12-Aday ogrenci olusturma.(Password alani bos birakilamaz.)', () => {
 
-    
+
     register.writeRegisterName(fakeName)
     register.writeRegisterNachname(fakeSurname)
     register.writeRegisterGeburtsOrt(registerData.Birth_Place)
@@ -245,13 +247,13 @@ describe('US01-TC01-Aday ogrenciler sisteme kayit olabilmelidir.', () => {
     register.writeRegisterPasswort(registerData.BosPassword)
     register.clickRegisterButton()
     register.verifyZorunluAlanMessage(registerData.requiredZorunluAlanMessage)
-  
+
   });
 
 
   it('US01-TC13-Aday ogrenci olusturma.(Password 8 karakterden az olmamali)', () => {
 
-    
+
     register.writeRegisterName(fakeName)
     register.writeRegisterNachname(fakeSurname)
     register.writeRegisterGeburtsOrt(registerData.Birth_Place)
@@ -263,13 +265,13 @@ describe('US01-TC01-Aday ogrenciler sisteme kayit olabilmelidir.', () => {
     register.writeRegisterPasswort(registerData.PasswordYediKarakter)
     register.clickRegisterButton()
     register.verifyPasswortYediKarakter(registerData.PasswordRequireduyariyazisiKarakterSayisi)
-  
+
   });
 
 
   it('US01-TC14-Aday ogrenci olusturma.(Password farkli karakterlerden olusmali)', () => {
 
-    
+
     register.writeRegisterName(fakeName)
     register.writeRegisterNachname(fakeSurname)
     register.writeRegisterGeburtsOrt(registerData.Birth_Place)
@@ -281,13 +283,13 @@ describe('US01-TC01-Aday ogrenciler sisteme kayit olabilmelidir.', () => {
     register.writeRegisterPasswort(registerData.PasswortAyniTipKarakter)
     register.clickRegisterButton()
     register.VerifyPasswortAyniTipKarakter(registerData.PasswortAyniTipKarakterUyariMessage)
-  
+
   });
 
 
   it('Aday ogrenci olusturma(kullanici guncel tarihi dogum tarihi olarak giremez', () => {
 
-    
+
     register.writeRegisterName(fakeName)
     register.writeRegisterNachname(fakeSurname)
     register.writeRegisterGeburtsOrt(registerData.Birth_Place)
@@ -297,8 +299,8 @@ describe('US01-TC01-Aday ogrenciler sisteme kayit olabilmelidir.', () => {
     register.writeRegisterSSN(fakessn)
     register.writeRegisterNutzername(fakeName)
     register.writeRegisterPasswort(registerData.Password)
-   register. clickandverifyErrorMessageDogumyili()
-  
+    register.clickandverifyErrorMessageDogumyili()
+
   });
 
 })

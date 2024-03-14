@@ -5,6 +5,7 @@ class LoginPage{
         this.passwordInput='#password'
         this.loginButton='button.fw-semibold.btn.btn-primary[type="button"]'
         this.loginIcon='[class="header_link ms-2"]'
+        
     }
 
     //Methods
@@ -20,6 +21,13 @@ class LoginPage{
     }
     clickLoginButton(){
         cy.get(this.loginButton).should('be.enabled').click();
+    }
+
+    writeUserName(AdminUsername){
+        cy.get(this.userNameInput).type(AdminUsername)
+    }
+    writePassword(AdminPassword){
+        cy.get(this.passwordInput).type(AdminPassword)
     }
    
 } 
