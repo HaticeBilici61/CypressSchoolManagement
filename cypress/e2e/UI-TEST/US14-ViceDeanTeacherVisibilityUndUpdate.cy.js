@@ -5,7 +5,6 @@ const { vicedeanHomePage } = require("../support/pages/vicedean_home_page");
 import { vicedeanMenu } from "../support/pages/vicedean_menu_page";
 import{ teacherManagement } from "../support/pages/teacherManagementPage";
 import { editTeacherPage } from "../support/pages/editTeacherPage";
-
 describe('US_14 Vice Dean öğretmenleri görebilmeli ve güncelleme yapabilmelidir.', () => {
  
   let name= faker.person.firstName();
@@ -17,9 +16,6 @@ describe('US_14 Vice Dean öğretmenleri görebilmeli ve güncelleme yapabilmeli
   let vicedeanlogindata 
   let phoneNumber=generateFakePhone();
   let birthDay="1960-01-10";
-
-
-
   function generateFakePhone() {
     const randomNumber = () => Math.floor(Math.random() * 10);
     return `${randomNumber()}${randomNumber()}${randomNumber()}-${randomNumber()}${randomNumber()}${randomNumber()}-${randomNumber()}${randomNumber()}${randomNumber()}${randomNumber()}`;
@@ -29,7 +25,6 @@ describe('US_14 Vice Dean öğretmenleri görebilmeli ve güncelleme yapabilmeli
                 .join('')
                 .replace(/(\d{3})(\d{2})(\d{4})/, "$1-$2-$3");
 }
-
   before(() => {
   
     cy.fixture('vicedeanlogindata').then((data) => {
@@ -37,20 +32,19 @@ describe('US_14 Vice Dean öğretmenleri görebilmeli ve güncelleme yapabilmeli
     })
 });
 beforeEach(() => {
-  cy.visit('/');
+   cy.visit('/');
+   loginPage.clickLoginIcon();
+   loginPage.writeUserName(vicedeanlogindata.userName);
+   loginPage.writePassword(vicedeanlogindata.password);
+   loginPage.clickLoginButton();
 });
  
-
   
-  it.skip('US_14_TC_01 Oluşturulan öğretmenin Name, Phone Number, SSN, User Name bilgileri görülebilmeli', ()=> {
+  it('US_14_TC_01 Oluşturulan öğretmenin Name, Phone Number, SSN, User Name bilgileri görülebilmeli', ()=> {
     cy.on('uncaught:exception', (err, runnable) => {
       return false
   })
-   cy.visit('/');
-   loginPage.clickLoginButton1();
-   loginPage.writeUserName(vicedeanlogindata.userName);
-   loginPage.writePassword(vicedeanlogindata.password);
-   loginPage.clickLoginButton2();
+      
    vicedeanHomePage.clickMenuButton();
    vicedeanMenu.clickTeacherManagement();
    cy.wait(2000);
@@ -73,20 +67,17 @@ beforeEach(() => {
    teacherManagement.phoneAssertion();
    teacherManagement.ssnAssertion();
    teacherManagement.usernameAssertion();
-
 });
-
-
    it.only('US_14_TC_02 Oluşturulan öğretmenin bilgileri güncellenebilmeli', () => {
     cy.on('uncaught:exception', (err, runnable) => {
       return false
      
    });
    cy.visit('/');
-   loginPage.clickLoginButton1();
+   loginPage.clickLoginIcon();
    loginPage.writeUserName(vicedeanlogindata.userName);
    loginPage.writePassword(vicedeanlogindata.password);
-   loginPage.clickLoginButton2();
+   loginPage.clickLoginButton();
    vicedeanHomePage.clickMenuButton();
    vicedeanMenu.clickTeacherManagement();
    teacherManagement.clickTeacherEdit();
@@ -98,9 +89,6 @@ beforeEach(() => {
    editTeacherPage.changePassword(password);
    editTeacherPage.clickSubmitButton();
    editTeacherPage.clickcloseEditMenu();
-
   });
   
 })
-
-
