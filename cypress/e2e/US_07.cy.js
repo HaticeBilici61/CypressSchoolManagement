@@ -3,12 +3,12 @@ const { homePage } = require("../support/pages/homePage");
 const {loginPage } = require("../support/pages/loginPage");
 
 
-describe('Vice Dean, kullanicilarin gönderdiği mesajlari görebilmelidir', () => {
-    let loginData
+describe('Dean kullanicilarin gönderdiği mesajlari görebilmelidir', () => {
+    let deanLoginData
   
     before(() => {
-        cy.fixture('login_data').then((data) => {
-            loginData = data
+        cy.fixture('dean_login_data').then((data) => {
+            deanLoginData = data
         })
        
     });
@@ -16,14 +16,14 @@ describe('Vice Dean, kullanicilarin gönderdiği mesajlari görebilmelidir', () 
     beforeEach(() => {
         cy.visit('/' );
     });
-    it('Vice Dean, mesajlari, yazarlarini, e-maillerini, gönderilme tarihi ve  subject bilgilerini görüntüleyebilmelidir', () => {
+    it('Dean mesajlari, yazarlarini, e-maillerini, gönderilme tarihi ve  subject bilgilerini görüntüleyebilmelidir', () => {
       cy.visit('/')
       loginPage.clickLoginButton1()
-      loginPage.writeUserName(loginData.userName)
-          loginPage.writePassword(loginData.passwordInput)
+      loginPage.writeUserName(deanLoginData.userName)
+          loginPage.writePassword(deanLoginData.passwordInput)
           loginPage.clickLoginButton2();
           homePage.clickMenuButton();
-          homePage.clickContactGetAllButton();
+          homePage.clickContactGetAllButton2();
           contactMessagePage.verifyMessageName();
           contactMessagePage.verifyMessageEmail();
           contactMessagePage.verifyMessageDate();

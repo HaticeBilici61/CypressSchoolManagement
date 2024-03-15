@@ -9,8 +9,7 @@ class LoginPage{
         this.userName = 'input[placeholder="username"]'
         this.passwordInput = 'input[placeholder="Password"]'
         this.loginButton2 = 'button[type="button"][class="fw-semibold btn btn-primary"]'
-       
-
+        this.contactButton= '.container > #offcanvasNavbar-expand-lg > .offcanvas-body > .justify-content-start > :nth-child(5)'
     }
 
     //Methods
@@ -42,6 +41,10 @@ class LoginPage{
    
     clickMenuButton(MenuButton) {
         cy.get(this.MenuButton).click();
+    }
+
+    clickContactButton(contactButton){
+        cy.get(this.contactButton).click();
     }
 
 
