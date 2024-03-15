@@ -23,17 +23,13 @@ class AdminManagementPage {
         this.errorMessage9 =':nth-child(7) > .mb-4 > .invalid-feedback'
         this.errorMessage10=':nth-child(9) > .mb-4 > .invalid-feedback'
         this.invaliSsnMessage='.Toastify__toast-body'
-        this.invaliPasswordMessage=':nth-child(9) > .mb-4 > .invalid-feedback'
-
-
-
-
-        
-        
-
-
-
-        
+        this.invaliPasswordMessage=':nth-child(9) > .mb-4 > .invalid-feedback'  
+        this.GuestName="//tbody/tr[13]/td[1]" 
+        this.GuestGender="//tbody/tr[13]/td[2]"
+        this.GuestPhone="//tbody/tr[13]/td[3]"
+        this.GuestSsn="//tbody/tr[13]/td[4]"
+        this.GuestUsername="//tbody/tr[13]/td[5]"
+        this.GuestDelete="//tbody/tr[13]/td[6]"
         
     }
 
@@ -170,5 +166,28 @@ verifyInvalidpassword3(invaliPasswordMessage){
     cy.get(this.invaliPasswordMessage).should('have.to',invaliPasswordMessage);
 }
 
+verifyGuestName(){
+    cy.xpath(this.GuestName).should('be.visible')
+}
+
+verifyGuestGender(){
+    cy.xpath(this.GuestGender).should('be.visible')
+}
+
+verifyGuestPhone(){
+    cy.xpath(this.GuestPhone).should('be.visible')
+}
+
+
+verifyGuestSsn(){
+    cy.xpath(this.GuestSsn).should('be.visible')
+}
+
+verifyGuestUserName(){
+    cy.xpath(this.GuestUsername).should('be.visible')
+}
+deleteGuestUser(){
+    cy.xpath(this.GuestDelete).click()
+}
 }
 export const adminManagement = new AdminManagementPage()
