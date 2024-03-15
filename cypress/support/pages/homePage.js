@@ -15,6 +15,7 @@ class HomePage{
 constructor(){
     this.MenuButton = '[aria-controls="offcanvasNavbar-expand-false"]'
     this.contactGetAllButton='.justify-content-start > :nth-child(10)'
+    this.contactGetAllButton2= '.offcanvas.show > .offcanvas-body > .justify-content-start > :nth-child(2)'
     this.GastBenutzerButon="//div[@class='justify-content-start flex-grow-1 fs-5 ps-3 navbar-nav']//a[11]"
 
 }
@@ -30,6 +31,9 @@ clickContactGetAllButton(contactButton) {
 clickGastBenutzerButton(){
     cy.wait(2000)
     cy.xpath(this.GastBenutzerButon).click({force:true})
+}
+clickContactGetAllButton2(contactButton2) {
+    cy.get(this.contactGetAllButton2).click();
 }
 
 }

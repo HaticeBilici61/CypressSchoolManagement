@@ -1,7 +1,7 @@
-import { loginPage } from "../support/pages/loginPage";
-import { studentChooseLesson } from "../support/pages/studentChooseLessonPage";
-import { studentMainMenu } from "../support/pages/studentMainMenuPage";
-import { studentInfoList } from "../support/pages/studentInfoListPage";
+import { loginPage } from "../../support/pages/loginPage";
+import { studentChooseLesson } from "../../support/pages/studentChooseLessonPage";
+import { studentMainMenu } from "../../support/pages/studentMainMenuPage";
+import { studentInfoList } from "../../support/pages/studentInfoListPage";
 describe('US_21 Students, choose lesson, grades and announcement', () => {
     let studentlogindata
     before(() => {
