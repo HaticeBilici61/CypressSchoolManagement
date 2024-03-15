@@ -3,6 +3,7 @@ const { homePage } = require("../support/pages/homePage");
 const {loginPage } = require("../support/pages/loginPage");
 
 
+
 describe('Vice Dean, kullanicilarin gönderdiği mesajlari görebilmelidir', () => {
     let loginData
   

@@ -1,5 +1,5 @@
-import { lessonManagementPage } from "../support/pages/lessonManagementPage";
-import { loginPage } from "../support/pages/loginPage";
+import { lessonManagementPage } from "../../support/pages/lessonManagementPage";
+import { loginPage } from "../../support/pages/loginPage";
 
 
 describe('Vice Dean ders olusturabilmeli', () => {
@@ -20,10 +20,10 @@ describe('Vice Dean ders olusturabilmeli', () => {
 });
 it('Vice Dean ders olusturmali', () => {
     cy.visit('/')
-      loginPage.clickLoginButton1()
+      loginPage.clickLoginIcon()
       loginPage.writeUserName(viceDeanLoginData.userName)
           loginPage.writePassword(viceDeanLoginData.passwordInput)
-          loginPage.clickLoginButton2()
+          loginPage.clickLoginButton()
 
            lessonManagementPage.clickLessonButton()
            lessonManagementPage.writeLessonName(lessonData.lessonName)

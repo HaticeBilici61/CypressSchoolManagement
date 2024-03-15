@@ -1,6 +1,6 @@
 
-const { contactPage } = require("../support/pages/contactPage");
-const { loginPage } = require("../support/pages/loginPage");
+const { contactPage } = require("../../support/pages/contactPage");
+const { loginPage } = require("../../support/pages/loginPage");
 
 //import { loginPage } from "../support/pages/loginPage";
 

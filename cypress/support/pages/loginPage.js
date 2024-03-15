@@ -3,51 +3,40 @@ class LoginPage{
     constructor(){
         this.userNameInput='#username'
         this.passwordInput='#password'
-        this.loginButton='[class="fw-semibold btn btn-primary"]'
-
-        this.loginButton1 = 'a[class="header_link ms-2"][href="/login"]'
-        this.userName = 'input[placeholder="username"]'
-        this.passwordInput = 'input[placeholder="Password"]'
-        this.loginButton2 = 'button[type="button"][class="fw-semibold btn btn-primary"]'
+        this.loginButton='button.fw-semibold.btn.btn-primary[type="button"]'       
+        this.loginIcon= '[class="header_link ms-2"]' 
         this.contactButton= '.container > #offcanvasNavbar-expand-lg > .offcanvas-body > .justify-content-start > :nth-child(5)'
     }
 
+
+        
+      
+
     //Methods
 
-    //writeUserName(userName){
-      //  cy.get(this.userNameInput).type(userName)
-    //}
-    //writePassword(password){
-      //  cy.get(this.passwordInput).type(password)
-    //}
-
-
-    clickLoginButton1(loginButton) {
-        cy.get(this.loginButton1).click();
+    writeUserName(DeanUserName){
+        cy.get(this.userNameInput).type(DeanUserName)
+    }
+    writePassword(DeanPassword){
+        cy.get(this.passwordInput).type(DeanPassword)
+    }
+    clickLoginIcon(){
+        cy.get(this.loginIcon).click()
+    }
+    clickLoginButton(){
+        cy.get(this.loginButton).should('be.enabled').click();
     }
 
-    writeUserName(userName) {
-        cy.get(this.userName).type(userName)
+    writeUserName(AdminUsername){
+        cy.get(this.userNameInput).type(AdminUsername)
     }
-
-    writePassword(password) {
-        cy.get(this.passwordInput).type(password)
-    }
-
-    clickLoginButton2(){
-        cy.get(this.loginButton2).click();
-    }
-
-   
-    clickMenuButton(MenuButton) {
-        cy.get(this.MenuButton).click();
+    writePassword(AdminPassword){
+        cy.get(this.passwordInput).type(AdminPassword)
     }
 
     clickContactButton(contactButton){
         cy.get(this.contactButton).click();
     }
-
-
    
 } 
 export const loginPage = new LoginPage()

@@ -1,6 +1,6 @@
-const { contactMessagePage } = require("../support/pages/contactMessagePage");
-const { homePage } = require("../support/pages/homePage");
-const {loginPage } = require("../support/pages/loginPage");
+const { contactMessagePage } = require("../../support/pages/contactMessagePage");
+const { homePage } = require("../../support/pages/homePage");
+const {loginPage } = require("../../support/pages/loginPage");
 
 
 describe('Dean kullanicilarin gönderdiği mesajlari görebilmelidir', () => {
@@ -18,10 +18,10 @@ describe('Dean kullanicilarin gönderdiği mesajlari görebilmelidir', () => {
     });
     it('Dean mesajlari, yazarlarini, e-maillerini, gönderilme tarihi ve  subject bilgilerini görüntüleyebilmelidir', () => {
       cy.visit('/')
-      loginPage.clickLoginButton1()
+      loginPage.clickLoginIcon()
       loginPage.writeUserName(deanLoginData.userName)
           loginPage.writePassword(deanLoginData.passwordInput)
-          loginPage.clickLoginButton2();
+          loginPage.clickLoginButton();
           homePage.clickMenuButton();
           homePage.clickContactGetAllButton2();
           contactMessagePage.verifyMessageName();
