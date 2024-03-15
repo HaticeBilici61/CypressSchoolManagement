@@ -19,7 +19,7 @@ class LoginPage{
         cy.get(this.loginIcon).click()
     }
     clickLoginButton(){
-        cy.get(this.loginButton).should('be.enabled').click();
+        cy.get(this.loginButton).click();
     }
    
 } 

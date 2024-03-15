@@ -37,20 +37,20 @@ describe('US_14 Vice Dean öğretmenleri görebilmeli ve güncelleme yapabilmeli
     })
 });
 beforeEach(() => {
-  cy.visit('/');
+   cy.visit('/');
+   loginPage.clickLoginIcon();
+   loginPage.writeUserName(vicedeanlogindata.userName);
+   loginPage.writePassword(vicedeanlogindata.password);
+   loginPage.clickLoginButton();
 });
  
 
   
-  it.skip('US_14_TC_01 Oluşturulan öğretmenin Name, Phone Number, SSN, User Name bilgileri görülebilmeli', ()=> {
+  it('US_14_TC_01 Oluşturulan öğretmenin Name, Phone Number, SSN, User Name bilgileri görülebilmeli', ()=> {
     cy.on('uncaught:exception', (err, runnable) => {
       return false
   })
-   cy.visit('/');
-   loginPage.clickLoginButton1();
-   loginPage.writeUserName(vicedeanlogindata.userName);
-   loginPage.writePassword(vicedeanlogindata.password);
-   loginPage.clickLoginButton2();
+      
    vicedeanHomePage.clickMenuButton();
    vicedeanMenu.clickTeacherManagement();
    cy.wait(2000);
@@ -83,10 +83,10 @@ beforeEach(() => {
      
    });
    cy.visit('/');
-   loginPage.clickLoginButton1();
+   loginPage.clickLoginIcon();
    loginPage.writeUserName(vicedeanlogindata.userName);
    loginPage.writePassword(vicedeanlogindata.password);
-   loginPage.clickLoginButton2();
+   loginPage.clickLoginButton();
    vicedeanHomePage.clickMenuButton();
    vicedeanMenu.clickTeacherManagement();
    teacherManagement.clickTeacherEdit();

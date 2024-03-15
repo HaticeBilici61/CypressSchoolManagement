@@ -12,10 +12,10 @@ describe('US_21 Students, choose lesson, grades and announcement', () => {
     });
     beforeEach(() => {
       cy.visit('/');
-      loginPage.clickLoginButton1();
+      loginPage.clickLoginIcon();
         loginPage.writeUserName(studentlogindata.userName);
         loginPage.writePassword(studentlogindata.password);
-        loginPage.clickLoginButton2();
+        loginPage.clickLoginButton();
     });
 
     it('US_21_TC_01 Öğrenci Choose Lesson listesinde; Teacher, Day, Start Time ve Stop Time bilgilerini görebilmeli', () => {
