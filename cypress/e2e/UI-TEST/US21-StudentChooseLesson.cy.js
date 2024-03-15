@@ -17,7 +17,6 @@ describe('US_21 Students, choose lesson, grades and announcement', () => {
         loginPage.writePassword(studentlogindata.password);
         loginPage.clickLoginButton();
     });
-
     it('US_21_TC_01 Öğrenci Choose Lesson listesinde; Teacher, Day, Start Time ve Stop Time bilgilerini görebilmeli', () => {
         cy.on('uncaught:exception', (err, runnable) => {
             return false
@@ -30,7 +29,6 @@ describe('US_21 Students, choose lesson, grades and announcement', () => {
         studentChooseLesson.verifyStopTime();
       
     });
-
     it("US_21_TC_02 Öğrenci İstediği ders veya dersleri seçebilmeli Seçtiği dersleri Lesson Program List’te görebilmeli", () => {
         cy.on('uncaught:exception', (err, runnable) => {
             return false
@@ -38,20 +36,15 @@ describe('US_21 Students, choose lesson, grades and announcement', () => {
         studentChooseLesson.selectMoreThanOneLesson();
       
     });
-
     it('US_21_TC_03 Aynı gün ve saate denk gelen dersleri seçememeli', () => {
         cy.on('uncaught:exception', (err, runnable) => {
             return false
         })
-
         studentChooseLesson.selectLesson();
         studentChooseLesson.clickSubmitandverifyMessage();
         
         
     });
-
-
-
     it.only('US_21_TC_05 Öğrenci, danışmanın kendisi için oluşturduğu toplantıları görebilmelidir', ()=> {
        
         cy.on('uncaught:exception', (err, runnable) => {
@@ -63,10 +56,7 @@ describe('US_21 Students, choose lesson, grades and announcement', () => {
         studentInfoList.MeetListStartTimevisibility();
         studentInfoList.MeetListStopTimevisibility();
         studentInfoList.MeetListDescriptionvisibility();
-
-
     });
-
     it('US_21_TC_06 Öğrenci sınav notlarını görebilmeli', () => {
         cy.on('uncaught:exception', (err, runnable) => {
             return false

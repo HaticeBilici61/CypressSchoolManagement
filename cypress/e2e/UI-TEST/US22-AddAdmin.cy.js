@@ -1,25 +1,19 @@
 
 const { adminManagement } = require("../support/pages/adminManagementPage");
 const {loginPage } = require("../support/pages/loginPage");
-
-
-
 describe('Admin Ekleme', () => {
    let adminManagementData
    let loginData
   
    
     before(() => {
-
         cy.fixture('login_data').then((data) => {
             loginData = data
         })
-
        
         cy.fixture('admin_management_data').then((data) => {
             adminManagementData = data
         })
-
     
        
     });
@@ -48,7 +42,6 @@ describe('Admin Ekleme', () => {
   
           
     })
-
     it('US22_TC02 Name alani bos birakildiginda yeni admin eklenememelidir', () => {
        
        
@@ -82,7 +75,6 @@ describe('Admin Ekleme', () => {
             adminManagement.verifyErrorMessage2(adminManagementData.errorMessage2)
               
                       
-
 })
 it('US22_TC04 Birth Place alani bos birakildiginda yeni admin eklenememelidir', () => {
         
@@ -112,7 +104,6 @@ it('US22_TC06 Date Of Birth alani bos birakildiginda yeni admin eklenememelidir'
             adminManagement.clickSubmitButton()
             adminManagement.verifyErrorMessage4(adminManagementData.errorMessage4)
 })
-
 it('US22_TC07 Phone alani bos birakildiginda yeni admin eklenememelidir', () => {
         
     adminManagement.writeName(adminManagementData.name)
@@ -128,14 +119,12 @@ it('US22_TC07 Phone alani bos birakildiginda yeni admin eklenememelidir', () => 
     adminManagement.verifyErrorMessage5(adminManagementData.errorMessage5)
       
 })
-
 it('US22_TC08 SSN alani bos birakildiginda yeni admin eklenememelidir', () => {
         
     adminManagement.writeName(adminManagementData.name)
     adminManagement.writeSurname(adminManagementData.surname)
     adminManagement.writeBirthPlace(adminManagementData.birthPlace)
     adminManagement.clickGender(adminManagementData.gender)
-
     adminManagement.writeDateOf(adminManagementData.dateOfBirth)
     adminManagement.writePhone(adminManagementData.phone)
     
