@@ -44,19 +44,19 @@ describe('US01-TC01-Aday ogrenciler sisteme kayit olabilmelidir.', () => {
     cy.visit('/' + Cypress.env('register'));
   });
 
-  it('US01-TC01-Aday ogrenciler sisteme kayit olabilmelidir.', () => {
+  it.only('US01-TC01-Aday ogrenciler sisteme kayit olabilmelidir.', () => {
     cy.on('uncaught:exception', (err, runnable) => {
       return false
     })
 
-    register.writeRegisterName(fakeName)
-    register.writeRegisterNachname(fakeSurname)
+    register.writeRegisterName(registerData.Name)
+    register.writeRegisterNachname(registerData.Surname)
     register.writeRegisterGeburtsOrt(registerData.Birth_Place)
     register.writeRegisterTelefon(fakePhoneNumber)
     register.writeRegisterGschlechtclick(registerData.Gender)
     register.writeRegisterGeburtsdatum(registerData.Date_Of_Birth)
-    register.writeRegisterSSN(fakessn)
-    register.writeRegisterNutzername(fakeName)
+    register.writeRegisterSSN(registerData.Ssn)
+    register.writeRegisterNutzername(registerData.User_Name)
     register.writeRegisterPasswort(registerData.Password)
     register.clickRegisterButton()
 

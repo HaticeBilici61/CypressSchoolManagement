@@ -43,7 +43,7 @@ module.exports = defineConfig({
     setupNodeEvents(on, config) {
       require('cypress-mochawesome-reporter/plugin')(on);
       on("task", {
-        async connectDb(query) {
+        async connectDB(query) {
           const pool = new Pool(dbConfig);
           const results = await pool.query(query);
           return results
