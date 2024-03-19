@@ -17,7 +17,7 @@ class LoginPage{
         cy.get(this.passwordInput).type(DeanPassword)
     }
     clickLoginIcon(){
-        cy.get(this.loginIcon).click()
+        cy.get(this.loginIcon).click({force:true});
     }
     clickLoginButton(){
         cy.get(this.loginButton).click();
