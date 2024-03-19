@@ -1,6 +1,12 @@
-const { contactMessagePage } = require("../support/pages/contactMessagePage");
-const { homePage } = require("../support/pages/homePage");
-const {loginPage } = require("../support/pages/loginPage");
+
+
+
+import { contactMessagePage } from "../../support/pages/contactMessagePage";
+import { homePage } from "../../support/pages/homePage";
+import { loginPage } from "../../support/pages/loginPage";
+
+
+
 describe('Vice Dean, kullanicilarin gönderdiği mesajlari görebilmelidir', () => {
     let loginData
   
@@ -16,10 +22,10 @@ describe('Vice Dean, kullanicilarin gönderdiği mesajlari görebilmelidir', () 
     });
     it('Vice Dean, mesajlari, yazarlarini, e-maillerini, gönderilme tarihi ve  subject bilgilerini görüntüleyebilmelidir', () => {
       cy.visit('/')
-      loginPage.clickLoginButton1()
+      loginPage.clickLoginIcon()
       loginPage.writeUserName(loginData.userName)
           loginPage.writePassword(loginData.passwordInput)
-          loginPage.clickLoginButton2();
+          loginPage.clickLoginButton();
           homePage.clickMenuButton();
           homePage.clickContactGetAllButton();
           contactMessagePage.verifyMessageName();
