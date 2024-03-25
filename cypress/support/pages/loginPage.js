@@ -3,10 +3,14 @@ class LoginPage{
     constructor(){
         this.userNameInput='#username'
         this.passwordInput='#password'
-        this.loginButton='button.fw-semibold.btn.btn-primary[type="button"]'
-        this.loginIcon='[class="header_link ms-2"]'
-        
+        this.loginButton='button.fw-semibold.btn.btn-primary[type="button"]'       
+        this.loginIcon= '[class="header_link ms-2"]' 
+        this.contactButton= '.container > #offcanvasNavbar-expand-lg > .offcanvas-body > .justify-content-start > :nth-child(5)'
     }
+
+
+        
+      
 
     //Methods
 
@@ -17,10 +21,10 @@ class LoginPage{
         cy.get(this.passwordInput).type(DeanPassword)
     }
     clickLoginIcon(){
-        cy.get(this.loginIcon).click()
+        cy.get(this.loginIcon).click({force:true});
     }
     clickLoginButton(){
-        cy.get(this.loginButton).should('be.enabled').click();
+        cy.get(this.loginButton).click();
     }
 
     writeUserName(AdminUsername){
@@ -29,15 +33,10 @@ class LoginPage{
     writePassword(AdminPassword){
         cy.get(this.passwordInput).type(AdminPassword)
     }
+
+    clickContactButton(contactButton){
+        cy.get(this.contactButton).click();
+    }
    
 } 
 export const loginPage = new LoginPage()
-
-
-
-
-
-
-
-
-

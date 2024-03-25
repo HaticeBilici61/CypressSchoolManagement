@@ -1,10 +1,9 @@
 const { faker } = require("@faker-js/faker");
-const { homePage } = require("../support/pages/homePage");
-const {loginPage } = require("../support/pages/loginPage");
-const { vicedeanHomePage } = require("../support/pages/vicedean_home_page");
-import { vicedeanMenu } from "../support/pages/vicedean_menu_page";
-import{ teacherManagement } from "../support/pages/teacherManagementPage";
-import { editTeacherPage } from "../support/pages/editTeacherPage";
+import { loginPage } from "../../support/pages/loginPage";
+import { vicedeanHomePage } from "../../support/pages/vicedean_home_page";
+import { vicedeanMenu } from "../../support/pages/vicedean_menu_page";
+import{ teacherManagement } from "../../support/pages/teacherManagementPage";
+import { editTeacherPage } from "../../support/pages/editTeacherPage";
 describe('US_14 Vice Dean öğretmenleri görebilmeli ve güncelleme yapabilmelidir.', () => {
  
   let name= faker.person.firstName();
@@ -68,16 +67,13 @@ beforeEach(() => {
    teacherManagement.ssnAssertion();
    teacherManagement.usernameAssertion();
 });
-   it.only('US_14_TC_02 Oluşturulan öğretmenin bilgileri güncellenebilmeli', () => {
+   it('US_14_TC_02 Oluşturulan öğretmenin bilgileri güncellenebilmeli', () => {
     cy.on('uncaught:exception', (err, runnable) => {
       return false
      
    });
-   cy.visit('/');
-   loginPage.clickLoginIcon();
-   loginPage.writeUserName(vicedeanlogindata.userName);
-   loginPage.writePassword(vicedeanlogindata.password);
-   loginPage.clickLoginButton();
+   
+
    vicedeanHomePage.clickMenuButton();
    vicedeanMenu.clickTeacherManagement();
    teacherManagement.clickTeacherEdit();

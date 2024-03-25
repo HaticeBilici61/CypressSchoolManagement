@@ -26,3 +26,24 @@
 Cypress.Commands.add('xpath', (selector, ...args) => {
     return cy.get(`xpath=${selector}`, ...args);
 });
+
+
+
+// token uretmek icin gerekli olan metot
+Cypress.Commands.add('generateToken', (username, password) => {
+    const body ={
+        username : username,
+        password:password
+    };
+    cy.request({
+        method: "POST",
+        url: "https://managementonschools.com/app/auth/login",
+        body: body,
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }).then((response) => {
+        return response.body.token;
+      });
+
+});     
