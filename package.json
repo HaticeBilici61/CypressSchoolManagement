@@ -16,6 +16,7 @@
     "xpath_cypress": "^1.0.2"
   },
   "dependencies": {
+    "chai": "^5.1.0",
     "pg": "^8.11.3"
   }
 }
