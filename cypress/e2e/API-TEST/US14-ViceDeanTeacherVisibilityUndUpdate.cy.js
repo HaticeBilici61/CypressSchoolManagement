@@ -35,14 +35,14 @@ before(() => {
         expect(response.headers["content-type"]).to.include("application/json");
         expect(response.body.message).to.eq("Teacher successfully found");
         expect(response.body.object.id).to.eq(5339);
-        expect(response.body.object.surname).to.eq("Sprout")
-        expect(response.body.object.phoneNumber).to.eq("549-454-1728")        
-        expect(response.body.object.ssn).to.eq("325-47-5874")
+        expect(response.body.object.surname).to.eq("Potter")
+        expect(response.body.object.phoneNumber).to.eq("123-345-6789")        
+        expect(response.body.object.ssn).to.eq("456-56-9876")
       });
     })
   });
 
-  it.only('US_14_TC_02 Oluşturulan öğretmenin bilgileri güncellenebilmeli', () => {
+  it('US_14_TC_02 Oluşturulan öğretmenin bilgileri güncellenebilmeli', () => {
 
     cy.on('uncaught:exception', (err, runnable) => {
       return false
@@ -67,29 +67,30 @@ before(() => {
           //${pathparam1}${pathparam2}${pathparam3}`,
           body: payload,
           headers:{
+            Authorization:`${token}`,
            "Content-Type": "application/json",
         },
         //failOnStatusCode: false,
-        // ignoreUnknown: true
+         ignoreUnknown: true
        }).then((response) => {
         console.log(response.body);
         cy.log(JSON.stringify(response.body));
-       // const actualData=response.body
+        const actualData=response.body.object
              
-      // expect(response.status).to.eq(200);
-      // expect(response.body.object.userId).to.eq(5339);
-      // expect(response.body.object.username).to.eq(payload.username);
-      // expect(response.body.object.name).to.eq(payload.name);
-      // expect(response.body.object.surname).to.eq(payload.surname);
-       //expect(response.body.object.birthDay).to.eq(payload.birthDay);
-      // expect(response.body.object.ssn).to.eq(payload.ssn);
-      // expect(response.body.object.birthPlace).to.eq(payload.birthPlace);
-      // expect(response.body.object.phoneNumber).to.eq(payload.phoneNumber);
-      // expect(response.body.object.gender).to.eq(payload.gender);
-      // expect(response.body.object.email).to.eq(payload.email);
-       //expect(response.body.object.isAdvisorTeacher).to.eq(payload.isAdvisorTeacher);
-       //expect(response.body.message).to.eq("Teacher updated Successful");
-       //expect(response.body.httpStatus).to.eq("OK");
+       expect(response.status).to.eq(200);
+       expect(actualData.userId).to.eq(5339);
+       expect(actualData.username).to.eq(payload.username);
+       expect(actualData.name).to.eq(payload.name);
+       expect(actualData.surname).to.eq(payload.surname);
+       expect(actualData.birthDay).to.eq(payload.birthDay);
+       expect(actualData.ssn).to.eq(payload.ssn);
+       expect(actualData.birthPlace).to.eq(payload.birthPlace);
+       expect(actualData.phoneNumber).to.eq(payload.phoneNumber);
+       expect(actualData.gender).to.eq(payload.gender);
+       expect(actualData.email).to.eq(payload.email);
+       //expect(actualData.isAdvisorTeacher).to.eq(payload.isAdvisorTeacher);
+       expect(response.body.message).to.eq("Teacher updated Successful");
+       expect(response.body.httpStatus).to.eq("OK");
        });
       
     });
