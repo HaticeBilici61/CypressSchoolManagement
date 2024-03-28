@@ -38,7 +38,6 @@ describe('US22 AddAdmin Validation', () => {
             expect(expectedAddAdmin.ssn).to.be.equal(data.rows[0].ssn);
             expect(expectedAddAdmin.surname).to.be.equal(data.rows[0].surname);
             expect(expectedAddAdmin.username).to.be.equal(data.rows[0].username);
-           // expect(expectedAddAdmin.build_in).to.be.equal(data.rows[0].build_in);
             expect(expectedAddAdmin.user_role_id).to.be.equal(data.rows[0].user_role_id);
             
 
