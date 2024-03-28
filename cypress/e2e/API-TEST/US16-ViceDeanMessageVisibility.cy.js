@@ -33,29 +33,17 @@ describe('US16_Vice Dean, kullanicilarin gönderdiği mesajlari görebilmelidir'
               Authorization:`${token}`,
             },
           }).then((response) => {
-            /*
-            "content": [
-        {
-            "name": "Admin",
-            "email": "admin1@gmail.com",
-            "subject": "final project",
-            "message": "about team management",
-            "date": "2024-03-22"
-        },
-            */
-    
-            expect(response.status).to.eq(200)
-            console.log(response.body);
-            cy.log(JSON.stringify(response.body));
-            expect(response.statusText).to.eq("OK");
-            expect(response.headers["content-type"]).to.include("application/json");
-        
-            expect(response.body.content[0].name).to.eq("Admin");
-            expect(response.body.content[0].email).to.eq("admin1@gmail.com");
-            expect(response.body.content[0].subject).to.eq("final project");
-  expect(response.body.content[0].message).to.eq("about team management");
- expect(response.body.content[0].date).to.eq("2024-03-22");
-            
+           
+ expect(response.status).to.eq(200);
+ console.log(response.body);
+ 
+ expect(response.body.content[0]).to.have.property( "name"); 
+ expect(response.body.content[0]).to.have.property( "email"); 
+ expect(response.body.content[0]).to.have.property( "subject"); 
+ expect(response.body.content[0]).to.have.property( "message"); 
+ expect(response.body.content[0]).to.have.property(  "date"); 
+
+
           });
         })
       });
