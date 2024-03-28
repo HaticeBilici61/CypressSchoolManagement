@@ -17,7 +17,6 @@ describe("Teacher Validation DB", () => {
         expect(teacherInfo).to.have.property('surname','Potter')
         expect(teacherInfo).to.have.property('birth_place','Hogwarts')
 
-
       });
     });
   });
