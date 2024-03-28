@@ -1,6 +1,6 @@
 
-const { adminManagement } = require("../support/pages/adminManagementPage");
-const {loginPage } = require("../support/pages/loginPage");
+const { adminManagement } = require("../../support/pages/adminManagementPage");
+const {loginPage } = require("../../support/pages/loginPage");
 describe('Admin Ekleme', () => {
    let adminManagementData
    let loginData
@@ -19,11 +19,11 @@ describe('Admin Ekleme', () => {
     });
   
     beforeEach(() => {
-        cy.visit('/')
-        loginPage.clickLoginButton1()
-        loginPage.writeUserName(loginData.userName)
-            loginPage.writePassword(loginData.passwordInput)
-            loginPage.clickLoginButton2();
+          cy.visit('/')
+          loginPage.clickLoginIcon()
+          loginPage.writeUserName(loginData.AdminUsername)
+          loginPage.writePassword(loginData.AdminPassword)
+          loginPage.clickLoginButton();
       });
     it('US22_TC01 Tüm alanlar geçerli verilerle doldurulduğunda admin yeni admin ekleyebilmelidir', () => {
         
@@ -110,7 +110,6 @@ it('US22_TC07 Phone alani bos birakildiginda yeni admin eklenememelidir', () => 
     adminManagement.writeSurname(adminManagementData.surname)
     adminManagement.writeBirthPlace(adminManagementData.birthPlace)
     adminManagement.clickGender(adminManagementData.gender)
-    
     adminManagement.writeDateOf(adminManagementData.dateOfBirth)
     adminManagement.writeSsn(adminManagementData.ssn)
     adminManagement.writeUserName(adminManagementData.userName)
@@ -127,7 +126,6 @@ it('US22_TC08 SSN alani bos birakildiginda yeni admin eklenememelidir', () => {
     adminManagement.clickGender(adminManagementData.gender)
     adminManagement.writeDateOf(adminManagementData.dateOfBirth)
     adminManagement.writePhone(adminManagementData.phone)
-    
     adminManagement.writeUserName(adminManagementData.userName)
     adminManagement.writePassword(adminManagementData.password)
     adminManagement.clickSubmitButton()
@@ -143,7 +141,6 @@ it('US22_TC09 User Name bos birakildiginda yeni admin eklenememelidir', () => {
     adminManagement.writeDateOf(adminManagementData.dateOfBirth)
     adminManagement.writePhone(adminManagementData.phone)
     adminManagement.writeSsn(adminManagementData.ssn)
-    //adminManagement.writeUserName(adminManagementData.userName)
     adminManagement.writePassword(adminManagementData.password)
     adminManagement.clickSubmitButton()
     adminManagement.verifyErrorMessage7(adminManagementData.errorMessage7)
@@ -159,7 +156,6 @@ it('US22_TC010 Password alani bos birakildiginda yeni admin eklenememelidir', ()
     adminManagement.writePhone(adminManagementData.phone)
     adminManagement.writeSsn(adminManagementData.ssn)
     adminManagement.writeUserName(adminManagementData.userName)
-    //adminManagement.writePassword(adminManagementData.password)
     adminManagement.clickSubmitButton()
     adminManagement.verifyErrorMessage8(adminManagementData.errorMessage8)
       

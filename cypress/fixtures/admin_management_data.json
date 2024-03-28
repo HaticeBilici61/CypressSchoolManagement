@@ -25,26 +25,11 @@
    "errorMessage9":"Minimum 11 character (XXX-XX-XXXX)",
    "errorMessage10":"At least 8 characters",
    "invaliSsnMessage":"Please enter valid SSN number",
-   "invaliPasswordMessage":"One lowercase character",
-   "adminSaveURL":"https://managementonschools.com/app/admin/save",
-
-
-
-
-   "userId": 2184,
-        "username": "AdminSelme",
-        "name1": "Admin",
-        "surname1": "Selme",
-        "birthDay": "2001-01-01",
-        "ssn1": "890-34-6763",
-        "birthPlace1": "Meram",
-        "phoneNumber": "176-567-8981",
-        "gender1": "FEMALE",
-    
-    "message": "Admin Saved",
-    "httpStatus": "CREATED"
-
-}
+   "invaliPasswordMessage":"One lowercase character"
+   
+} 
+   
+   
 
 
 
