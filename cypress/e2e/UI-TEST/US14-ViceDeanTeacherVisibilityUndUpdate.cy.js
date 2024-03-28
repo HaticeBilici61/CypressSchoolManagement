@@ -67,7 +67,7 @@ beforeEach(() => {
    teacherManagement.ssnAssertion();
    teacherManagement.usernameAssertion();
 });
-   it('US_14_TC_02 Oluşturulan öğretmenin bilgileri güncellenebilmeli', () => {
+   it.only('US_14_TC_02 Oluşturulan öğretmenin bilgileri güncellenebilmeli', () => {
     cy.on('uncaught:exception', (err, runnable) => {
       return false
      

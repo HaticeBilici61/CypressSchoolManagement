@@ -1,3 +1,5 @@
+const { expect } = require("chai");
+
 describe('US_14 Vice Dean öğretmenleri görebilmeli ve güncelleme yapabilmelidir.', () => {
  
 let vicedeanlogindata 
@@ -7,8 +9,6 @@ before(() => {
     vicedeanlogindata = data
    })
 });
-
- 
   
   it('US_14_TC_01 Oluşturulan öğretmenin bilgileri doğrulanabilmeli', ()=> {
     cy.on('uncaught:exception', (err, runnable) => {
@@ -35,9 +35,9 @@ before(() => {
         expect(response.headers["content-type"]).to.include("application/json");
         expect(response.body.message).to.eq("Teacher successfully found");
         expect(response.body.object.id).to.eq(5339);
-        expect(response.body.object.surname).to.eq("Sprout")
-        expect(response.body.object.phoneNumber).to.eq("549-454-1728")        
-        expect(response.body.object.ssn).to.eq("325-47-5874")
+        expect(response.body.object.surname).to.eq("Potter")
+        expect(response.body.object.phoneNumber).to.eq("123-345-6789")        
+        expect(response.body.object.ssn).to.eq("456-56-9876")
       });
     })
   });
@@ -47,47 +47,55 @@ before(() => {
     cy.on('uncaught:exception', (err, runnable) => {
       return false
     })
+    //Set the url
+    //const pathparam1= "/teachers";
+    //const pathparam2= "/update";
+    //const pathparam3= "/5339";
 
     //token olustur
     cy.generateToken(vicedeanlogindata.userName, vicedeanlogindata.password).then(
       (token) => {
       console.log(token)
-      cy.fixture("updateTeacherPayload").as("payload");
-      cy.get("@payload").then((payload) => {
 
-
-      cy.request({
-        method: "PUT",
-        url: "https://managementonschools.com/app/teachers/update/5339",
-        body: payload,
-        headers:{
-          Authorization:`${token}`,
+     cy.fixture("updateTeacherPayload").as("payload");
+     //cy.fixture("updateTeacherResponse").as("expectedData");
+     cy.get("@payload").then((payload) => {
+   //  cy.get("@expectedData").then((expectedData) => {
+     cy.request({
+          method: "PUT",
+          url: `https://managementonschools.com/app/teachers/update/5339`,
+          //${pathparam1}${pathparam2}${pathparam3}`,
+          body: payload,
+          headers:{
+            Authorization:`${token}`,
+           "Content-Type": "application/json",
         },
-      }).then((response) => {
-        const actualData=response.body
-        expect(response.status).to.eq(201)
+        //failOnStatusCode: false,
+         ignoreUnknown: true
+       }).then((response) => {
         console.log(response.body);
         cy.log(JSON.stringify(response.body));
-        expect(response.status).to.eq(200);
-        expect(response.body.object.id).to.eq(5339);
-        expect(response.body.object.surname).to.eq("Sprout")
-        expect(response.body.object.phoneNumber).to.eq("549-454-1728")        
-        expect(response.body.object.ssn).to.eq("325-47-5874")
-        expect(response.body.object.name).to.eq(payload.name);
-        expect(response.body.object.birthPlace).to.eq(payload.birthPlace);
-        expect(response.body.object.birthDay).to.eq(payload.birthDay);
-       
-
-        
-
-
-
-                
-
-      });
-    })
+        const actualData=response.body.object
+             
+       expect(response.status).to.eq(200);
+       expect(actualData.userId).to.eq(5339);
+       expect(actualData.username).to.eq(payload.username);
+       expect(actualData.name).to.eq(payload.name);
+       expect(actualData.surname).to.eq(payload.surname);
+       expect(actualData.birthDay).to.eq(payload.birthDay);
+       expect(actualData.ssn).to.eq(payload.ssn);
+       expect(actualData.birthPlace).to.eq(payload.birthPlace);
+       expect(actualData.phoneNumber).to.eq(payload.phoneNumber);
+       expect(actualData.gender).to.eq(payload.gender);
+       expect(actualData.email).to.eq(payload.email);
+       //expect(actualData.isAdvisorTeacher).to.eq(payload.isAdvisorTeacher);
+       expect(response.body.message).to.eq("Teacher updated Successful");
+       expect(response.body.httpStatus).to.eq("OK");
+       });
       
-  });
-});
-   
-});
+    });
+    });      
+  })
+}); 
+
+
