@@ -69,6 +69,21 @@ Cypress.Commands.add("addAdmin", (token, addAdminData) => {
     body: addAdminData,
   })
   });
+
+//Add Vicedean (Dean ekler) POST REQUEST icin bir resable metot olusturalim.
+
+Cypress.Commands.add("addVicedean", (token, addVicedeanData) => {
+  cy.request({
+    method: "POST",//creating new data
+    url: "https://managementonschools.com/app/vicedean/save",
+    headers: {
+      Authorization: `${token}`, // Assuming your API uses Bearer token authentication
+      "Content-Type": "application/json",
+    },
+    body: addVicedeanData,
+  })
+  });
+
     });
     
   
