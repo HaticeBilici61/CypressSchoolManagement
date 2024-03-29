@@ -28,12 +28,12 @@ describe("guest user validation", () => {
                 }).then((response)=>{
                     expect(response.status).to.eq(200);
                     console.log(response.body);
-                    expect(response.body.content[3].username).to.eq(registerData.User_Name)
-                    expect(response.body.content[3].name).to.eq(registerData.Name)
-                    expect(response.body.content[3].phoneNumber).to.eq(registerData.Phone)
-                    expect(response.body.content[3].password).to.eq(registerData.password)
-                    expect(response.body.content[3].surname).to.eq(registerData.Surname)
-                    expect(response.body.content[3].gender).to.eq(registerData.GenderMale)
+                    expect(response.body.content[7].username).to.eq(registerData.User_Name)
+                    expect(response.body.content[7].name).to.eq(registerData.Name)
+                    expect(response.body.content[7].phoneNumber).to.eq(registerData.Phone)
+                    expect(response.body.content[7].password).to.eq(registerData.password)
+                    expect(response.body.content[7].surname).to.eq(registerData.Surname)
+                    expect(response.body.content[7].gender).to.eq(registerData.GenderMale)
                      
 
                        } );
