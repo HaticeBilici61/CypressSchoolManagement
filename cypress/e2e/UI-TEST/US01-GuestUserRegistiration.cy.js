@@ -31,12 +31,7 @@ describe('US01-TC01-Aday ogrenciler sisteme kayit olabilmelidir.', () => {
       //fakeNachname=faker.name.lastName()
       fakeSurname = faker.person.lastName()
 
-
-
     })
-
-
-
 
   });
 
