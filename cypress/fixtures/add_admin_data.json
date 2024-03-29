@@ -10,7 +10,7 @@
   "surname": "Aykannnnm",
   "username": "AdminAykannnnm",
   "addAdminUrl": "https://managementonschools.com/app/auth/login",
-  "getUrl":"https://managementonschools.com/app/admin/getAll?page=0&size=10&sort=name&type=desc"
+  "getUrl":"https://managementonschools.com/app/admin/getAll?page=0&size=100&sort=name&type=desc"
 }
 
 
