@@ -28,9 +28,12 @@ class LoginPage{
     }
 
     writeUserName(AdminUsername){
+        cy.wait(2000)
         cy.get(this.userNameInput).type(AdminUsername)
+        cy.wait(2000)
     }
     writePassword(AdminPassword){
+        
         cy.get(this.passwordInput).type(AdminPassword)
     }
 

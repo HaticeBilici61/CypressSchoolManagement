@@ -1,6 +1,8 @@
 const { loginPage } = require("../support/pages/loginPage");
 const { viceDeanManagementPage } = require("../support/pages/viceDeanManagementPage");
 const { faker } = require("@faker-js/faker");
+
+
 describe('Dean Login Test Suite', () => {
     let fakeSSN=generateFakeSSN();
     let fakephoneNumber=generateFakePhone();
@@ -25,8 +27,8 @@ describe('Dean Login Test Suite', () => {
 
       
     before(() => {
-        cy.fixture('login_data').then((data) => {
-            loginData = data;
+    cy.fixture('login_data').then((data) => {
+                loginData = data;
         });
         cy.fixture('vice_dean_management_register_data').then((data) => {
             viceDeanData = data;
