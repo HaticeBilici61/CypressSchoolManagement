@@ -21,10 +21,10 @@ describe('Vice Dean, kullanicilarin gönderdiği mesajlari görebilmelidir', () 
         cy.visit('/' );
     });
     it('Vice Dean, mesajlari, yazarlarini, e-maillerini, gönderilme tarihi ve  subject bilgilerini görüntüleyebilmelidir', () => {
-      cy.visit('/')
-      loginPage.clickLoginIcon()
-      loginPage.writeUserName(loginData.userName)
-          loginPage.writePassword(loginData.passwordInput)
+      
+          loginPage.clickLoginIcon()
+          loginPage.writeUserName(loginData.AdminUsername)
+          loginPage.writePassword(loginData.AdminPassword)
           loginPage.clickLoginButton();
           homePage.clickMenuButton();
           homePage.clickContactGetAllButton();

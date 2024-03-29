@@ -56,7 +56,20 @@ Cypress.Commands.add("addGuest", (token, guestData) => {
       "Content-Type": "application/json",
     },
     body: guestData,
+  });});
+// Add Admin POST REQUEST ICIN REUSABLE BIR METOT OLUSTURALIM
+Cypress.Commands.add("addAdmin", (token, addAdminData) => {
+  cy.request({
+    method: "POST",//creating new data
+    url: "https://managementonschools.com/app/admin/save",
+    headers: {
+      Authorization: `${token}`, // Assuming your API uses Bearer token authentication
+      "Content-Type": "application/json",
+    },
+    body: addAdminData,
+  })
   });
+    });
+    
+  
 
-}); 
-});    
