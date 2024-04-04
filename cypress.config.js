@@ -32,11 +32,11 @@ module.exports = defineConfig({
     openMode: 0, // npx cypress open komutu ile test çalıştırıldığında, test fail olursa burada belirtilen sayı mitarınca testi tekrar koşar
   },
   e2e: {
-   baseUrl: "https://managementonschools.com",
+   baseUrl: "https://test.salevali.com",
     env: {
-      login: "/login",
-      guest: '/guest-user',
-      register: '/register'
+      login: "/auth/login",
+      
+      register: '/auth/registration'
 
 
     },
