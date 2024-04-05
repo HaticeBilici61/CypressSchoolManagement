@@ -28,6 +28,18 @@ Cypress.Commands.add('xpath', (selector, ...args) => {
 });
 
 
+//Login methodu
+Cypress.Commands.add('login', (email, password) => {
+
+  //killanici adi gir
+  cy.get('[name="email"]').type(email);
+  //sifre gir
+  cy.get('[name="password"]').type(password);
+  //login butonuna tikla
+  cy.xpath('//button[@id="btn_login"]').click();
+})
+
+
 
 // token uretmek icin gerekli olan metot
 Cypress.Commands.add('generateToken', (username, password) => {
