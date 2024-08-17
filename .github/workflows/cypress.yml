@@ -3,10 +3,10 @@ name: Cypress Test Workflow
 on:
   push:
     branches:
-      - master
+      - main
   pull_request:
     branches:
-      - master
+      - main
 
 jobs:
   cypress-run:
@@ -14,7 +14,7 @@ jobs:
 
     strategy:
       matrix:
-        test-type: [test ,smokeTest, regressionTest]  # Çalıştırılacak test script'leri
+        test-type: [smokeTest, saleValeSmoke, regressionTest]  # Çalıştırılacak test script'leri
 
     steps:
       - name: Checkout repository
@@ -29,4 +29,4 @@ jobs:
         run: npm install  # Bağımlılıkları yükle
 
       - name: Run Cypress tests
-        run: npm run test # Matrix üzerinden her bir script'i çalıştır
+        run: npm run ${{ matrix.test-type }}  # Matrix üzerinden her bir script'i çalıştır
