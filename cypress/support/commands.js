@@ -56,7 +56,9 @@ Cypress.Commands.add("addGuest", (token, guestData) => {
       "Content-Type": "application/json",
     },
     body: guestData,
-  });});
+  });
+
+});
 // Add Admin POST REQUEST ICIN REUSABLE BIR METOT OLUSTURALIM
 Cypress.Commands.add("addAdmin", (token, addAdminData) => {
   cy.request({
