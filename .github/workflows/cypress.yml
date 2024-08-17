@@ -1,32 +1,27 @@
-name: Cypress Test Workflow
-
+name: Cypress Tests
 on:
   push:
-    branches:
-      - master
+    branches: [ main, master ]
   pull_request:
-    branches:
-      - master
-
+    branches: [ main, master ]
 jobs:
-  cypress-run:
+  test:
+    timeout-minutes: 60
     runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        test-type: [smokeTest, test, regressionTest]  # Çalıştırılacak test script'leri
-
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '16'
-
-      - name: Install dependencies
-        run: npm install  # Bağımlılıkları yükle
-
-      - name: Run Cypress tests
-        run: npx cypress run -e tags=\"@smoke\" # Matrix üzerinden her bir script'i çalıştır
+    - uses: actions/checkout@v4
+    - uses: actions/setup-node@v4
+      with:
+        node-version: lts/*
+    - name: Install dependencies
+      run: npm ci
+    - name: Install Cypress
+      run: npm install cypress --save-dev
+    - name: Run Cypress tests
+      run: npm run smokeTest
+    - uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: cypress-report
+        path: cypress/reports/
+        retention-days: 30
