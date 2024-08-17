@@ -8,8 +8,8 @@
       
     },
     { "DeanUsername":"Frautan",
-    "DeanPassword":"Kubraa_48@",
-    "url": "https://www.managementonschools.com",
+      "DeanPassword":"Kubraa_48@",
+      "url": "https://www.managementonschools.com",
       "baseUrl": "https://managementonschools.com/app",
       "getURL": "https://managementonschools.com/app/vicedean/getAll"
 
