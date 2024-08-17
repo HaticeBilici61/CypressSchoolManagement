@@ -14,7 +14,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "smokeTest": "npx cypress run -e tags='@smoke' --spec 'cypress/e2e/SMOKE-TEST/**'",
-    "regressionTest": "npx cypress run -e tags=\"@regression\""
+    "regressionTest": "npx cypress run -e tags=\"@regression\"",
+    "databaseTest" : "npx cypress run -e tags='@database' --spec 'cypress/e2e/DATABASE-TEST/**'"
+
   },
   "author": "Team03",
   "license": "ISC",
