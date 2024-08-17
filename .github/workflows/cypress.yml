@@ -31,7 +31,7 @@ jobs:
       run: npx cypress install
 
     - name: Run Cypress smoke tests
-      run: npm run smokeTest --spec
+      run: npm run smokeTest 
     
     # Test raporlarını yükleme
     - uses: actions/upload-artifact@v4
