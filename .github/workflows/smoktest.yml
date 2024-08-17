@@ -1,4 +1,4 @@
-name: Cypress Tests
+name: Cypress Tests-workflow2
 on:
   push:
     branches: [ master ]
