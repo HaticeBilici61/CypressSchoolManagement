@@ -1,9 +1,9 @@
 name: Cypress Tests
 on:
   push:
-    branches: [  master ]
+    branches: [ master ]
   pull_request:
-    branches: [  master ]
+    branches: [ master ]
 jobs:
   test:
     timeout-minutes: 60
@@ -31,7 +31,7 @@ jobs:
       run: npx cypress install
 
     - name: Run Cypress smoke tests
-      run: npm run smokeTest
+      run: npm run smokeTest --spec
     
     # Test raporlarını yükleme
     - uses: actions/upload-artifact@v4
