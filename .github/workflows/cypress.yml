@@ -1,0 +1,25 @@
+name: Cypress Test Workflow
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+jobs:
+  cypress-run:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        test-type: [smokeTest, regressionTest]  # Çalıştırılacak test script'leri
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+      - name: Install dependencies
+        run: npm install  # Bağımlılıkları yükle
+      - name: Run Cypress tests
+        run: npm run ${{ matrix.test-type }}  # Matrix üzerinden her bir script'i çalıştır
